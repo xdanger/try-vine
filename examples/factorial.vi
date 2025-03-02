@@ -2,15 +2,17 @@
 
 use std::IO;
 
-fn factorial(n) {
-  if n <= 1 {
-    return 1
-  } else {
-    return n * factorial(n - 1)
-  }
-}
-
+// 使用迭代的方式计算阶乘
 pub fn main(&io: &IO) {
   let n = 5
-  io.println("Factorial of {n} is {factorial(n)}")
+  let result = 1
+
+  // 计算 n!
+  let i = 1
+  while i <= n {
+    result = result * i
+    i = i + 1
+  }
+
+  io.println("Factorial of {n} is {result}")
 }

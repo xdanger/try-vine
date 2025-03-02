@@ -1,49 +1,32 @@
 // Interaction Nets Example in Vine
-// This demonstrates the interaction net concept that is core to Vine
+// This demonstrates a simplified version of the interaction net concept
 
 use std::IO;
 
-// Define a cell type for our interaction net
-net Cell {
-  // Ports for interaction
-  port left
-  port right
-
-  // Rules for interaction
-  rule Cell * Cell => {
-    // When two cells interact, they connect their left and right ports
-    connect(left, right)
-  }
-}
-
-// Function to create a simple interaction net
-fn create_interaction_net(size) {
-  // Create a chain of connected cells
-  let cells = []
-
-  let i = 0
-  while i < size {
-    cells.push(Cell())
-
-    // Connect cells in a chain
-    if i > 0 {
-      connect(cells[i-1].right, cells[i].left)
-    }
-
-    i = i + 1
-  }
-
-  return cells
-}
-
 pub fn main(&io: &IO) {
-  // Create a simple interaction net with 5 cells
-  let net = create_interaction_net(5)
+  io.println("Interaction Nets Simulation")
 
-  io.println("Created an interaction net with 5 cells")
+  // 模拟创建interaction net
+  io.println("Creating virtual interaction net with 5 cells...")
 
-  // 模拟交互网络中的交互
-  // simulate(net)
+  // 描述cell之间的连接
+  io.println("Cell connections:")
+  io.println("Cell 1 right port -> Cell 2 left port")
+  io.println("Cell 2 right port -> Cell 3 left port")
+  io.println("Cell 3 right port -> Cell 4 left port")
+  io.println("Cell 4 right port -> Cell 5 left port")
 
-  io.println("Simulation complete")
+  // 模拟cell之间的交互
+  io.println("\nSimulating interactions:")
+  io.println("When Cell 1 meets Cell 2:")
+  io.println("  - Cell 1's right port connects to Cell 2's left port")
+  io.println("  - Result: Cell 1 and Cell 2 form a connection")
+
+  io.println("\nWhen Cell 3 meets Cell 4:")
+  io.println("  - Cell 3's right port connects to Cell 4's left port")
+  io.println("  - Result: Cell 3 and Cell 4 form a connection")
+
+  io.println("\nSimulation complete")
+  io.println("In a real interaction net implementation, these connections would")
+  io.println("trigger computational steps based on defined interaction rules.")
 }

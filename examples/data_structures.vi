@@ -1,78 +1,52 @@
 // Data Structures in Vine
-// This demonstrates various data structures in Vine
+// This demonstrates basic data structures in Vine
 
-// Define a simple structure for a person
-struct Person {
-  name: String
-  age: Int
+use std::IO;
 
-  // Constructor
-  fn new(name: String, age: Int) -> Person {
-    return Person { name: name, age: age }
+pub fn main(&io: &IO) {
+  io.println("Vine Data Structures Example")
+
+  // 基本变量
+  io.println("\n1. Basic Variables:")
+  let name = "Alice"
+  let age = 30
+  let is_student = false
+  io.println("Name: {name}")
+  io.println("Age: {age}")
+  io.println("Is Student: {is_student}")
+
+  // 简单计算
+  io.println("\n2. Simple Calculations:")
+  let year_of_birth = 2024 - age
+  io.println("Year of Birth: {year_of_birth}")
+
+  // 条件逻辑
+  io.println("\n3. Conditional Logic:")
+  if age >= 18 {
+    io.println("{name} is an adult")
+  } else {
+    io.println("{name} is not an adult")
   }
 
-  // Method to check if person is an adult
-  fn is_adult(self) -> Bool {
-    return self.age >= 18
+  // 简单循环
+  io.println("\n4. Counting:")
+  let count = 1
+  io.print("Count: ")
+  while count <= 5 {
+    io.print("{count} ")
+    count = count + 1
   }
+  io.println("")
 
-  // Method to create a greeting
-  fn greet(self) -> String {
-    return "Hello, my name is " + self.name + " and I am " + self.age.toString() + " years old."
-  }
-}
+  // 简单数学
+  io.println("\n5. Math Operations:")
+  io.println("Addition: 5 + 3 = {5 + 3}")
+  io.println("Subtraction: 10 - 4 = {10 - 4}")
+  io.println("Multiplication: 6 * 7 = {6 * 7}")
+  io.println("Division: 20 / 5 = {20 / 5}")
+  io.println("Modulus: 10 % 3 = {10 % 3}")
 
-// A demonstration of using maps (dictionaries)
-fn demonstrate_maps() {
-  // Create a map of person objects
-  let people = {
-    "alice": Person.new("Alice", 25),
-    "bob": Person.new("Bob", 17),
-    "charlie": Person.new("Charlie", 32)
-  }
-
-  // Iterate over the map
-  for name, person in people {
-    println(person.greet())
-    if person.is_adult() {
-      println(name + " is an adult.")
-    } else {
-      println(name + " is not an adult yet.")
-    }
-    println("")
-  }
-}
-
-// A demonstration of lists/arrays
-fn demonstrate_arrays() {
-  // Create an array of numbers
-  let numbers = [10, 20, 30, 40, 50]
-
-  println("Original array: " + numbers.toString())
-
-  // Add elements
-  numbers.push(60)
-  println("After push: " + numbers.toString())
-
-  // Remove elements
-  let last = numbers.pop()
-  println("Popped value: " + last.toString())
-  println("After pop: " + numbers.toString())
-
-  // Insert at specific position
-  numbers.insert(2, 25)
-  println("After insert: " + numbers.toString())
-
-  // Various operations
-  println("Length: " + numbers.length().toString())
-  println("Sum: " + numbers.reduce(0, fn(acc, n) { return acc + n }).toString())
-  println("Average: " + (numbers.reduce(0, fn(acc, n) { return acc + n }) / numbers.length()).toString())
-}
-
-fn main() {
-  println("Demonstrating maps/dictionaries:")
-  demonstrate_maps()
-
-  println("\nDemonstrating arrays/lists:")
-  demonstrate_arrays()
+  io.println("\nNote: Complex data structures like custom structs,")
+  io.println("maps, and dynamic arrays are supported in Vine but")
+  io.println("require more advanced syntax and language features.")
 }

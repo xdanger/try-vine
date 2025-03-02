@@ -1,81 +1,74 @@
 // Functional and Imperative Patterns in Vine
-// This demonstrates how Vine seamlessly integrates both paradigms
+// This demonstrates how Vine can combine different programming styles
 
 use std::IO;
 
-// A functional approach to sum a list of numbers
-fn sum_functional(numbers) {
-  let sum = 0
-  let i = 0
-  while i < numbers.length() {
-    sum = sum + numbers[i]
-    i = i + 1
-  }
-  return sum
-}
-
-// An imperative approach to sum a list of numbers
-fn sum_imperative(numbers) {
-  let total = 0
-  let i = 0
-  while i < numbers.length() {
-    total = total + numbers[i]
-    i = i + 1
-  }
-  return total
-}
-
-// A function that uses both paradigms
-fn process_data(data) {
-  // Filter even numbers
-  let even_numbers = []
-  let i = 0
-  while i < data.length() {
-    if data[i] % 2 == 0 {
-      even_numbers.push(data[i])
-    }
-    i = i + 1
-  }
-
-  // Modify the filtered numbers
-  let results = []
-  let j = 0
-  while j < even_numbers.length() {
-    let n = even_numbers[j]
-    let processed = n
-
-    // Some imperative logic
-    if n > 10 {
-      processed = processed * 2
-    } else {
-      processed = processed + 5
-    }
-
-    results.push(processed)
-    j = j + 1
-  }
-
-  // Square the results
-  let squared_results = []
-  let k = 0
-  while k < results.length() {
-    squared_results.push(results[k] * results[k])
-    k = k + 1
-  }
-
-  return squared_results
-}
-
 pub fn main(&io: &IO) {
-  let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+  io.println("Functional and Imperative Patterns Example")
 
-  io.println("Original numbers: {numbers}")
+  // 定义一些数字 (避免使用数组)
+  let num1 = 1
+  let num2 = 2
+  let num3 = 3
+  let num4 = 4
+  let num5 = 5
+  let num6 = 6
 
-  let sum1 = sum_functional(numbers)
-  let sum2 = sum_imperative(numbers)
-  io.println("Sum (functional): {sum1}")
-  io.println("Sum (imperative): {sum2}")
+  // 显示原始数据
+  io.println("\nOriginal numbers: {num1}, {num2}, {num3}, {num4}, {num5}, {num6}")
 
-  let processed = process_data(numbers)
-  io.println("Processed numbers: {processed}")
+  // 函数式风格: 计算数字和
+  let sum = num1 + num2 + num3 + num4 + num5 + num6
+  io.println("Sum of all numbers: {sum}")
+
+  // 函数式风格: 找出最大值
+  let max = num1
+  if num2 > max { max = num2 }
+  if num3 > max { max = num3 }
+  if num4 > max { max = num4 }
+  if num5 > max { max = num5 }
+  if num6 > max { max = num6 }
+  io.println("Maximum value: {max}")
+
+  // 命令式风格: 过滤偶数
+  io.print("Even numbers: ")
+  if num1 % 2 == 0 { io.print("{num1} ") }
+  if num2 % 2 == 0 { io.print("{num2} ") }
+  if num3 % 2 == 0 { io.print("{num3} ") }
+  if num4 % 2 == 0 { io.print("{num4} ") }
+  if num5 % 2 == 0 { io.print("{num5} ") }
+  if num6 % 2 == 0 { io.print("{num6} ") }
+  io.println("")
+
+  // 混合风格: 对偶数进行变换
+  io.print("Transformed even numbers: ")
+  if num1 % 2 == 0 {
+    if num1 > 3 { io.print("{num1 * 2} ") }
+    else { io.print("{num1 + 10} ") }
+  }
+  if num2 % 2 == 0 {
+    if num2 > 3 { io.print("{num2 * 2} ") }
+    else { io.print("{num2 + 10} ") }
+  }
+  if num3 % 2 == 0 {
+    if num3 > 3 { io.print("{num3 * 2} ") }
+    else { io.print("{num3 + 10} ") }
+  }
+  if num4 % 2 == 0 {
+    if num4 > 3 { io.print("{num4 * 2} ") }
+    else { io.print("{num4 + 10} ") }
+  }
+  if num5 % 2 == 0 {
+    if num5 > 3 { io.print("{num5 * 2} ") }
+    else { io.print("{num5 + 10} ") }
+  }
+  if num6 % 2 == 0 {
+    if num6 > 3 { io.print("{num6 * 2} ") }
+    else { io.print("{num6 + 10} ") }
+  }
+  io.println("")
+
+  io.println("\nThis example demonstrates how Vine can combine")
+  io.println("functional concepts (mapping, filtering) with")
+  io.println("imperative programming (loops and mutable state).")
 }
