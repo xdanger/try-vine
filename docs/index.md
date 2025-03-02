@@ -8,28 +8,28 @@
 
 ## 指南目录
 
-### 基础篇
+## 基础篇
 
 1. [Vine 语言简介](./01-introduction.md) - Vine 语言的起源、设计理念和特点
 2. [开发环境设置](./02-setup.md) - 安装和配置 Vine 开发环境
 3. [第一个 Vine 程序](./03-first-program.md) - 创建并运行您的第一个 Vine 程序
 
-### 语法与基本概念
+## 语法与基本概念
 
 4. [基本语法](./04-basic-syntax.md) - 变量、表达式、语句和注释
 5. [数据类型与运算符](./05-data-types.md) - 数值、字符串、布尔值和基本运算
 6. [控制流](./06-control-flow.md) - 条件语句、循环和分支
 7. [函数](./07-functions.md) - 函数定义、参数、返回值和作用域
 
-### 高级主题
+## 高级主题
 
 8. [交互网络理论基础](./08-interaction-nets.md) - 理解 Vine 的底层计算模型
 9. [常见数据结构](./09-data-structures.md) - 数组、映射等数据结构的使用
 10. [函数式编程特性](./10-functional-programming.md) - Vine 中的函数式编程模式
 11. [命令式编程特性](./11-imperative-programming.md) - Vine 中的命令式编程模式
-12. [混合编程模式](./12-hybrid-programming.md) - 结合函数式和命令式编程
+12. [混合编程模式](./12-hybrid-patterns.md) - 结合函数式和命令式编程
 
-### 实践与优化
+## 实践与优化
 
 13. [常见问题与解决方案](./13-common-issues.md) - 排错指南和常见问题的解决方法
 14. [性能优化技巧](./14-performance.md) - 提高 Vine 程序性能的方法和技巧
