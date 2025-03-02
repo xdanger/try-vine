@@ -1,0 +1,28 @@
+// Fibonacci example in Vine with memoization
+
+// We'll use a map to store previously computed values
+let memo = {}
+
+fn fibonacci(n: Int) -> Int {
+  // Base cases
+  if n <= 1 {
+    return n
+  }
+
+  // Check if we've already computed this value
+  if memo.contains(n) {
+    return memo[n]
+  }
+
+  // Compute and store the result
+  let result = fibonacci(n - 1) + fibonacci(n - 2)
+  memo[n] = result
+  return result
+}
+
+fn main() {
+  // Print the first 10 Fibonacci numbers
+  for i in 0..10 {
+    println("Fibonacci(" + i.toString() + ") = " + fibonacci(i).toString())
+  }
+}

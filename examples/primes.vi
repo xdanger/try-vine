@@ -1,0 +1,33 @@
+// Prime Numbers Example in Vine
+// This program finds prime numbers below 1000
+
+use std::IO;
+
+pub fn main(&io: &IO) {
+  io.println("Finding prime numbers below 1000:")
+  io.println("Prime numbers:")
+
+  // Check each number from 2 to 999
+  let n = 2
+  while n < 1000 {
+    let is_prime = true
+
+    // Check if n is divisible by any number from 2 to sqrt(n)
+    let i = 2
+    while i * i <= n && is_prime {
+      if n % i == 0 {
+        is_prime = false
+      }
+      i = i + 1
+    }
+
+    // Print if prime
+    if is_prime {
+      io.print("{n} ")
+    }
+
+    n = n + 1
+  }
+
+  io.println("")
+}

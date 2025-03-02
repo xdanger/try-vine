@@ -1,0 +1,78 @@
+// Data Structures in Vine
+// This demonstrates various data structures in Vine
+
+// Define a simple structure for a person
+struct Person {
+  name: String
+  age: Int
+
+  // Constructor
+  fn new(name: String, age: Int) -> Person {
+    return Person { name: name, age: age }
+  }
+
+  // Method to check if person is an adult
+  fn is_adult(self) -> Bool {
+    return self.age >= 18
+  }
+
+  // Method to create a greeting
+  fn greet(self) -> String {
+    return "Hello, my name is " + self.name + " and I am " + self.age.toString() + " years old."
+  }
+}
+
+// A demonstration of using maps (dictionaries)
+fn demonstrate_maps() {
+  // Create a map of person objects
+  let people = {
+    "alice": Person.new("Alice", 25),
+    "bob": Person.new("Bob", 17),
+    "charlie": Person.new("Charlie", 32)
+  }
+
+  // Iterate over the map
+  for name, person in people {
+    println(person.greet())
+    if person.is_adult() {
+      println(name + " is an adult.")
+    } else {
+      println(name + " is not an adult yet.")
+    }
+    println("")
+  }
+}
+
+// A demonstration of lists/arrays
+fn demonstrate_arrays() {
+  // Create an array of numbers
+  let numbers = [10, 20, 30, 40, 50]
+
+  println("Original array: " + numbers.toString())
+
+  // Add elements
+  numbers.push(60)
+  println("After push: " + numbers.toString())
+
+  // Remove elements
+  let last = numbers.pop()
+  println("Popped value: " + last.toString())
+  println("After pop: " + numbers.toString())
+
+  // Insert at specific position
+  numbers.insert(2, 25)
+  println("After insert: " + numbers.toString())
+
+  // Various operations
+  println("Length: " + numbers.length().toString())
+  println("Sum: " + numbers.reduce(0, fn(acc, n) { return acc + n }).toString())
+  println("Average: " + (numbers.reduce(0, fn(acc, n) { return acc + n }) / numbers.length()).toString())
+}
+
+fn main() {
+  println("Demonstrating maps/dictionaries:")
+  demonstrate_maps()
+
+  println("\nDemonstrating arrays/lists:")
+  demonstrate_arrays()
+}

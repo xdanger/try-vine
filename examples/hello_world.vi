@@ -1,0 +1,5 @@
+// Hello World example in Vine
+
+fn main() {
+  println("Hello, Vine!")
+}

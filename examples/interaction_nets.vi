@@ -1,0 +1,44 @@
+// Interaction Nets Example in Vine
+// This demonstrates the interaction net concept that is core to Vine
+
+// Define a cell type for our interaction net
+net Cell {
+  // Ports for interaction
+  port left
+  port right
+
+  // Rules for interaction
+  rule Cell * Cell => {
+    // When two cells interact, they connect their left and right ports
+    connect(left, right)
+  }
+}
+
+// Function to create a simple interaction net
+fn create_interaction_net(size: Int) {
+  // Create a chain of connected cells
+  let cells = []
+
+  for i in 0..size {
+    cells.push(Cell())
+
+    // Connect cells in a chain
+    if i > 0 {
+      connect(cells[i-1].right, cells[i].left)
+    }
+  }
+
+  return cells
+}
+
+fn main() {
+  // Create a simple interaction net with 5 cells
+  let net = create_interaction_net(5)
+
+  println("Created an interaction net with 5 cells")
+
+  // Simulate interactions in the net
+  simulate(net)
+
+  println("Simulation complete")
+}

@@ -1,0 +1,52 @@
+// Functional and Imperative Patterns in Vine
+// This demonstrates how Vine seamlessly integrates both paradigms
+
+// A functional approach to sum a list of numbers
+fn sum_functional(numbers: [Int]) -> Int {
+  return numbers.reduce(0, fn(acc, n) { return acc + n })
+}
+
+// An imperative approach to sum a list of numbers
+fn sum_imperative(numbers: [Int]) -> Int {
+  let total = 0
+  for n in numbers {
+    total += n
+  }
+  return total
+}
+
+// A function that uses both paradigms
+fn process_data(data: [Int]) -> [Int] {
+  // Functional: Filter even numbers
+  let even_numbers = data.filter(fn(n) { return n % 2 == 0 })
+
+  // Imperative: Modify the filtered numbers
+  let results = []
+  for n in even_numbers {
+    let processed = n
+
+    // Some imperative logic
+    if n > 10 {
+      processed *= 2
+    } else {
+      processed += 5
+    }
+
+    results.push(processed)
+  }
+
+  // Functional: Map the results to square them
+  return results.map(fn(n) { return n * n })
+}
+
+fn main() {
+  let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+  println("Original numbers: " + numbers.toString())
+
+  println("Sum (functional): " + sum_functional(numbers).toString())
+  println("Sum (imperative): " + sum_imperative(numbers).toString())
+
+  let processed = process_data(numbers)
+  println("Processed numbers: " + processed.toString())
+}
