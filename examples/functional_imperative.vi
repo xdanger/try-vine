@@ -1,52 +1,81 @@
 // Functional and Imperative Patterns in Vine
 // This demonstrates how Vine seamlessly integrates both paradigms
 
+use std::IO;
+
 // A functional approach to sum a list of numbers
-fn sum_functional(numbers: [Int]) -> Int {
-  return numbers.reduce(0, fn(acc, n) { return acc + n })
+fn sum_functional(numbers) {
+  let sum = 0
+  let i = 0
+  while i < numbers.length() {
+    sum = sum + numbers[i]
+    i = i + 1
+  }
+  return sum
 }
 
 // An imperative approach to sum a list of numbers
-fn sum_imperative(numbers: [Int]) -> Int {
+fn sum_imperative(numbers) {
   let total = 0
-  for n in numbers {
-    total += n
+  let i = 0
+  while i < numbers.length() {
+    total = total + numbers[i]
+    i = i + 1
   }
   return total
 }
 
 // A function that uses both paradigms
-fn process_data(data: [Int]) -> [Int] {
-  // Functional: Filter even numbers
-  let even_numbers = data.filter(fn(n) { return n % 2 == 0 })
+fn process_data(data) {
+  // Filter even numbers
+  let even_numbers = []
+  let i = 0
+  while i < data.length() {
+    if data[i] % 2 == 0 {
+      even_numbers.push(data[i])
+    }
+    i = i + 1
+  }
 
-  // Imperative: Modify the filtered numbers
+  // Modify the filtered numbers
   let results = []
-  for n in even_numbers {
+  let j = 0
+  while j < even_numbers.length() {
+    let n = even_numbers[j]
     let processed = n
 
     // Some imperative logic
     if n > 10 {
-      processed *= 2
+      processed = processed * 2
     } else {
-      processed += 5
+      processed = processed + 5
     }
 
     results.push(processed)
+    j = j + 1
   }
 
-  // Functional: Map the results to square them
-  return results.map(fn(n) { return n * n })
+  // Square the results
+  let squared_results = []
+  let k = 0
+  while k < results.length() {
+    squared_results.push(results[k] * results[k])
+    k = k + 1
+  }
+
+  return squared_results
 }
 
-fn main() {
+pub fn main(&io: &IO) {
   let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
-  println("Original numbers: " + numbers.toString())
+  io.println("Original numbers: {numbers}")
 
-  println("Sum (functional): " + sum_functional(numbers).toString())
-  println("Sum (imperative): " + sum_imperative(numbers).toString())
+  let sum1 = sum_functional(numbers)
+  let sum2 = sum_imperative(numbers)
+  io.println("Sum (functional): {sum1}")
+  io.println("Sum (imperative): {sum2}")
 
   let processed = process_data(numbers)
-  println("Processed numbers: " + processed.toString())
+  io.println("Processed numbers: {processed}")
 }

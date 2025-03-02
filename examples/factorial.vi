@@ -1,6 +1,8 @@
 // Factorial example in Vine
 
-fn factorial(n: Int) -> Int {
+use std::IO;
+
+fn factorial(n) {
   if n <= 1 {
     return 1
   } else {
@@ -8,7 +10,7 @@ fn factorial(n: Int) -> Int {
   }
 }
 
-fn main() {
+pub fn main(&io: &IO) {
   let n = 5
-  println("Factorial of " + n.toString() + " is " + factorial(n).toString())
+  io.println("Factorial of {n} is {factorial(n)}")
 }

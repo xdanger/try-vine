@@ -1,5 +1,7 @@
 // Hello World example in Vine
 
-fn main() {
-  println("Hello, Vine!")
+use std::IO;
+
+pub fn main(&io: &IO) {
+  io.println("Hello, Vine!")
 }

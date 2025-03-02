@@ -1,9 +1,11 @@
 // Fibonacci example in Vine with memoization
 
-// We'll use a map to store previously computed values
-let memo = {}
+use std::IO;
 
-fn fibonacci(n: Int) -> Int {
+fn fibonacci(n) {
+  // Static memo map for memoization
+  static memo = {}
+
   // Base cases
   if n <= 1 {
     return n
@@ -20,9 +22,11 @@ fn fibonacci(n: Int) -> Int {
   return result
 }
 
-fn main() {
+pub fn main(&io: &IO) {
   // Print the first 10 Fibonacci numbers
-  for i in 0..10 {
-    println("Fibonacci(" + i.toString() + ") = " + fibonacci(i).toString())
+  let i = 0
+  while i < 10 {
+    io.println("Fibonacci({i}) = {fibonacci(i)}")
+    i = i + 1
   }
 }

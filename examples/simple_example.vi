@@ -1,0 +1,43 @@
+// Simple Example in Vine
+// This demonstrates basic Vine syntax that we've confirmed works
+
+use std::IO;
+
+pub fn main(&io: &IO) {
+  io.println("Simple Vine Example")
+
+  // Variables and arithmetic
+  let x = 10
+  let y = 5
+  let sum = x + y
+  let product = x * y
+
+  io.println("x = {x}, y = {y}")
+  io.println("x + y = {sum}")
+  io.println("x * y = {product}")
+
+  // Conditional statements
+  if x > y {
+    io.println("x is greater than y")
+  } else {
+    io.println("x is not greater than y")
+  }
+
+  // While loop
+  let count = 1
+  while count <= 5 {
+    io.println("Count: {count}")
+    count = count + 1
+  }
+
+  io.println("Loop completed")
+
+  // Boolean operations
+  let a = true
+  let b = false
+  io.println("a AND b: {a && b}")
+  io.println("a OR b: {a || b}")
+  io.println("NOT a: {!a}")
+
+  io.println("Simple example completed")
+}

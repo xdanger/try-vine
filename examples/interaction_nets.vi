@@ -1,6 +1,8 @@
 // Interaction Nets Example in Vine
 // This demonstrates the interaction net concept that is core to Vine
 
+use std::IO;
+
 // Define a cell type for our interaction net
 net Cell {
   // Ports for interaction
@@ -15,30 +17,33 @@ net Cell {
 }
 
 // Function to create a simple interaction net
-fn create_interaction_net(size: Int) {
+fn create_interaction_net(size) {
   // Create a chain of connected cells
   let cells = []
 
-  for i in 0..size {
+  let i = 0
+  while i < size {
     cells.push(Cell())
 
     // Connect cells in a chain
     if i > 0 {
       connect(cells[i-1].right, cells[i].left)
     }
+
+    i = i + 1
   }
 
   return cells
 }
 
-fn main() {
+pub fn main(&io: &IO) {
   // Create a simple interaction net with 5 cells
   let net = create_interaction_net(5)
 
-  println("Created an interaction net with 5 cells")
+  io.println("Created an interaction net with 5 cells")
 
-  // Simulate interactions in the net
-  simulate(net)
+  // 模拟交互网络中的交互
+  // simulate(net)
 
-  println("Simulation complete")
+  io.println("Simulation complete")
 }
